@@ -1,0 +1,147 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Danh sách Khách Hàng
+
+            </div>
+            <!-- /.panel-heading -->
+             
+            <div class="panel-body">
+
+                <div>
+                    <section class="content" ng-app="myApp" ng-controller="CustomerController" ng-init="load()">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <button class="btn btn-primary" data-toggle="modal" data-target="#myModal" ng-click="reset()" ng-disabled="disableReset">
+                                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Thêm Mới
+                                </button>
+                                <button id="btnEdit" class="btn btn-info" ng-click="edit()" ng-disabled="disableEdit">
+                                    <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Cập nhật
+                                </button>
+                                <button class="btn btn-danger" ng-click="delete()" ng-disabled="disableDelete">
+                                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Xóa
+                                </button>
+                                <button class="btn btn-info" ng-click="save()" ng-disabled="disableSave">
+                                    <span class="glyphicon glyphicon-saved" aria-hidden="true"></span> Lưu Lại
+                                </button>
+                                <button class="btn btn-success" ng-click="ReLoad()" ng-disabled="disableReload">
+                                    <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span> Nạp lại
+                                </button>
+                                @*<button class="btn btn-primary" ng-click="ExportExcel()">
+                                        <span class="glyphicon glyphicon-export" aria-hidden="true"></span> Export Excel
+                                    </button>
+                                    <button class="btn btn-primary" ng-click="openImportExcel()">
+                                        <span class="glyphicon glyphicon-import" aria-hidden="true"></span> Import Excel
+                                    </button>*@
+
+                            </div>
+
+                          
+                        </div>
+                        <form id="form-customer">
+                            <table width="100%">
+                                <tr>
+                                    <th width="50%">
+                                        <label for="txtCustomerID" class="col-sm-13 control-label">Mã khách hàng<span style="color:palevioletred">*</span></label>
+                                        <div class="col-sm-14">
+                                            <input type="text" class="form-control" ng-model="customerID" ng-disabled="disableID" id="txtCustomerID">
+                                        </div>
+                                    </th>
+                                    <th width="50%">
+                                        <label class="col-sm-15 control-label">Khu vực<span style="color:palevioletred">*</span></label>
+                                        <div class="col-sm-16">
+                                            <select ng-model="txtCustomerGroup" class="form-control" id="txtCustomerGroup">
+                                                <option ng-repeat="cusGroup in customerGroups" value="{{cusGroup.Customer_Group_ID}}">{{cusGroup.Customer_Group_Name}}</option>
+                                            </select>
+                                        </div>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <th width="50%">
+                                        <label for="txtCustomerName" class="col-sm-13 control-label">Tên khách hàng<span style="color:palevioletred">*</span></label>
+                                        <div class="col-sm-14">
+                                            <input type="text" class="form-control" ng-model="customerName" id="txtCustomerName">
+                                        </div>
+                                    </th>
+                                    <th width="50%">
+                                        <label for="txtCustomerAddress" class="col-sm-15 control-label">Địa chỉ</label>
+                                        <div class="col-sm-16">
+                                            <input type="text" class="form-control" ng-model="customerAddress" id="txtCustomerAddress">
+                                        </div>
+                                    </th>
+                                </tr>
+
+                                <tr>
+                                    <th width="50%">
+                                        <label for="txtBirthday" class="col-sm-13 control-label">Ngày sinh</label>
+                                        <div class="col-sm-14">
+                                            <input  class="form-control" ng-model="customerBirthday" id="txtBirthday">
+                                        </div>
+                                    </th>
+                                    <th width="50%">
+                                        <label for="txtCustomerTel" class="col-sm-15 control-label">Điện thoại</label>
+                                        <div class="col-sm-16">
+                                            <input type="text" class="form-control" ng-model="customerTel" id="txtCustomerTel">
+                                        </div>
+                                    </th>
+                                </tr>
+
+                                <tr>
+                                    <th width="50%">
+                                        <label for="txtCustomerEmail" class="col-sm-13 control-label">Email</label>
+                                        <div class="col-sm-14">
+                                            <input type="text" class="form-control" ng-model="customerEmail" id="txtCustomerEmail">
+                                        </div>
+                                    </th>
+                                    <th width="50%">
+                                        <label for="txtCreateDate" class="col-sm-15 control-label">Ngày tạo</label>
+                                        <div class="col-sm-16">
+                                            <input  class="form-control" ng-model="customerCreateDate" ng-disabled="true" id="txtCreateDate">
+                                        </div>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <th width="50%">
+                                        <label for="txtDescription" class="col-sm-13 control-label">Ghi chú</label>
+                                        <div class="col-sm-14">
+                                            <input type="text" class="form-control" ng-model="customerDescription" id="txtDescription">
+                                        </div>
+                                    </th>
+                                    <th width="50%"></th>
+                                </tr>
+                            </table>
+                        </form>
+                        <div id="grid"></div>
+
+
+                        </section>
+                    <!-- /.table-responsive -->
+                </div>
+                <!-- /.panel-body -->
+            </div>
+            <!-- /.panel -->
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+</div>
+
+
+@section scripts{
+
+
+    <script src="~/Areas/Admin/js/CustomerController.js"></script>
+    <style type="text/css">
+        .btn {
+            margin-bottom: 2px;
+        }
+    </style>
+
+}
+

@@ -1,0 +1,148 @@
+﻿
+.list-product
+{    
+    list-style:none;
+    padding:0px;
+    margin:0px;
+    border:1px solid #e1e1e1;  
+    background:#fff;
+    position:absolute;
+    width:95%;
+    margin-top:2px;          
+}
+    .list-product .product-item{
+        padding:10px 10px;       
+    }
+
+    div.list-product .product-item:hover
+    {
+        cursor:pointer;
+        background-color:#2b9adb;
+        color:#ffffff
+    }
+    div.list-product .active
+    {
+        cursor:pointer;
+        background-color:#268dca;
+        color:#ffffff
+    }
+.list-header{
+    border-bottom:1px solid #e1e1e1;
+    padding:10px 10px;    
+    background-color:#F5F5F5;
+    color:#0090D2;
+}
+.close-list{    
+    cursor:pointer;
+    text-align:right;    
+}
+.list-body{
+    max-height:320px;
+    overflow-y:scroll;
+}
+.list-customer{
+    list-style:none;
+    padding:0px;
+    margin:0px;
+    border:1px solid #e1e1e1;  
+    background:#fff;
+    position:absolute;
+    width:95%;
+    margin-top:2px;
+    z-index:9;
+}
+    .list-customer .customer-item{
+        padding:10px 10px;       
+    }
+
+    div.list-customer .customer-item:hover
+    {
+        cursor:pointer;
+        background-color:#2b9adb;
+        color:#ffffff
+    }
+    div.list-customer .active
+    {
+        cursor:pointer;
+        background-color:#268dca;
+        color:#ffffff
+    }
+.search-customer {
+    padding:10px;
+}
+.key-search-customer{
+    border:1px solid #00a65a;
+    color:#00a65a;
+}
+    .key-search-customer::-webkit-input-placeholder 
+    {
+        color:#00a65a;
+    }
+
+.detail-table
+{
+    min-height:500px;
+    overflow-y:scroll;    
+}
+.col-command {
+    width:30px;
+    cursor:pointer;
+}
+.col-num{
+    width:30px;
+}
+.col-pro-id{
+    min-width:100px;
+}
+.col-pro-name{
+    min-width:300px;  
+}
+.col-unit{min-width:60px;}
+.col-quantity {
+    min-width:80px;
+}
+.col-unitprice {
+    min-width:120px;
+}
+.col-amount {
+    min-width:120px;
+}
+.input-number{
+    text-align:right;
+    padding:5px 10px;    
+    background-color:white; 
+    border-radius:5px;
+    outline:none;
+}
+.input-quantity{width:80px;text-align:center;}
+.input-unitprice{width:120px;}
+.input-vat-percent
+{width:80px;}
+
+
+.input-error{border:1px solid #db0707;}
+.ng-invalid-fcsa-number{border:1px solid #db0707 !important;}
+.input-info{border:1px solid #16638f;}
+
+.myLoading{
+    width:100%;
+    height:100%;
+    position:absolute;
+    z-index:99;
+    background-color:#fff;
+    opacity:0.7;
+    top:0px; left:0px;
+}
+.myTextLoading {
+    position: absolute;
+    top: 12%;
+    left: 50%;        
+    background-color: #268dca;
+    color: #fff;
+    padding: 10px 30px;
+    font-size: 15px;
+    margin-left:-20px;
+}
+
+
+
